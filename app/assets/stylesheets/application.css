@@ -1,0 +1,44 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import 'components/_index';
+@import 'pages/main';
+
+
+@font-face {
+  font-family: 'CircularStd-Black';
+  src: url("../fonts/Circular/CircularStd-Black.otf");
+}
+
+@font-face {
+  font-family: 'CircularStd-Bold';
+  src: url("../fonts/Circular/CircularStd-Bold.otf");
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("../fonts/Inter/Inter-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'Inter-Bold';
+  src: url("../fonts/Inter/Inter-Bold.ttf");
+}
+
+@layer base{
+  h1{
+    font-family: 'CircularStd-Bold';
+  }
+  h2{
+    font-family: 'CircularStd-Black';
+  }
+  p{
+    font-family: 'Inter';
+  }
+  a{
+    font-family: 'Inter-Bold';
+  }
+  html{
+    font-family: 'Inter-Bold';
+  }
+}

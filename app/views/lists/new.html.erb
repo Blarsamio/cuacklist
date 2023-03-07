@@ -1,0 +1,29 @@
+<div class="bg-white">
+  <%= simple_form_for @list do |f| %>
+  <div class="cont bg-lw-black h-40vp flex justify-center">
+    <div class=" flex flex-col justify-center w-20vpw">
+      <%= f.input :name, placeholder: 'Title', \
+                      input_html: { remove_default_class: "block appearence-none", \
+                                    class: "textarea-playlist text-white text-5xl bg-transparent border-none focus:border-none active:border-none focus:outline-none focus:ring-0 focus:ring-offset-0" }, \
+                      label_html: { class:'hidden'} %>
+    </div>
+  </div>
+  <div class="desc-playlist bg-white h-20vp flex justify-center w-screen">
+    <div class="flex flex-col justify-center w-20vpw">
+      <%= f.input :description, placeholder: 'Write your description here...', label_html: { class: 'hidden'}, input_html: { class: 'desc-textarea text-2xl text-lw-black border-none focus:border-none active:border-none focus:outline-none focus:ring-0 focus:ring-offset-0'} %>
+    </div>
+  </div>
+  <div class="desc-btns bg-white h-20vp flex justify-center w-screen">
+    <div class="flex flex-row w-20vpw justify-between">
+      <div class="cancel">
+        <%= f.submit class: 'btn-cancel', value: 'Cancel' %>
+        <%= show_svg('button.svg') %>
+      </div>
+      <div class="create">
+        <%= f.submit class: 'btn-create', value: 'Create' %>
+        <%= show_svg('button.svg') %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

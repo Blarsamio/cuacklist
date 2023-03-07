@@ -1,0 +1,91 @@
+.fotd-card{
+  width: calc(100vw - 20%);
+  height: calc(100vh - 20%);
+}
+
+.list-card {
+  height: 192px;
+  width: 311px;
+  counter-increment: gallery-cell;
+  opacity: 90%;
+  background-size: cover;
+}
+
+.list-card:hover{
+  opacity: 100%;
+}
+
+.list-card-content{
+  background-size: cover;
+  height: 192px;
+  width: 311px;
+}
+
+.list-card:hover svg{
+  display: grid;
+  cursor: pointer;
+}
+
+.list-card:hover span{
+  display: grid;
+}
+
+.left-panel {
+  height: 192px;
+  justify-content: center;
+  z-index: 10;
+  width: 240px;
+}
+
+.flickity-prev-next-button .flickity-button-icon {
+  visibility: hidden;
+}
+
+.flickity-prev-next-button {
+  visibility: hidden;
+}
+
+.new_bookmark{
+  background: none;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.movie-card{
+  height: 208px;
+  width: 370px;
+  background-size: cover;
+}
+
+.movie-card:hover p{
+  display: grid;
+  cursor: default;
+}
+
+.movie-card i{
+  display: none;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+.movie-card:hover i{
+  display: grid;
+  cursor: pointer;
+}
+
+.content {
+  height: 208px;
+  width: 370px;
+}
+
+.movie-card .content:hover {
+  backdrop-filter: brightness(50%);
+}
+
+.cont:hover .icons i{
+  color: white;
+  cursor: pointer;
+}

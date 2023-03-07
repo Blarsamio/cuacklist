@@ -1,0 +1,63 @@
+.divider {
+  height: 10%;
+  width: 100%;
+  margin-bottom: -3%;
+  background: transparent;
+  z-index: 10;
+}
+
+.svg-nav{
+  fill: #171717;
+  height: 48px;
+  width: 48px;
+  transition: all 0.7s ease-in-out;
+}
+
+.svg-nav:hover {
+  cursor: pointer;
+  transition: 0.7s;
+  height: 54px;
+  width: 54px;
+}
+
+.play svg {
+  height: 72px;
+  width: 72px;
+  fill: white;
+  border-radius: 50%;
+}
+
+.play svg:hover, polygon {
+  cursor: pointer;
+  fill: white;
+}
+
+.play svg:hover {
+  cursor: pointer;
+  fill: #023e8a;
+  background-color: #023e8a;
+}
+
+.add{
+  justify-self: end;
+  margin-right: 5%;
+  margin-top: 5%;
+}
+
+.add svg{
+  height: 38px;
+  width: 38px;
+  transition: 0.7s;
+}
+
+.add svg:hover{
+  cursor: pointer;
+  height: 48px;
+  width: 48px;
+}
+
+.add-card svg{
+  height: 38px;
+  width: 38px;
+  display: none;
+}

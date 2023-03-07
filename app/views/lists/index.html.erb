@@ -1,0 +1,44 @@
+<div class="cont-snap">
+  <div class="flex flex-col">
+    <div class="z-1 relative bg-no-repeat bg-cover grid grid-cols-3 h-10vph w-screen" style="background-image: url(<%= asset_path('square.webp') %>)" >
+      <div class="play self-center justify-self-center order-2">
+        <%= show_svg('play2.svg') %>
+      </div>
+      <div class="content order-1 ml-10 mb-5 justify-self-center self-end">
+        <p class="text-white">Film of the day</p>
+        <h1 class="text-6xl text-white pt-1 pb-2">The Square</h1>
+        <p class="text-white pb-1">RUBEN OSTLUND Sweden 2017</p>
+        <p class="text-white text-sm pb-4">The Square is a 2013 Swedish satirical black comedy film directed by Ruben Östlund. It was screened in the Un Certain Regard section at the 2013 Cannes Film Festival. The film won the Palme d'Or at the 2013 Cannes Film Festival, and the Academy Award for Best Foreign Language Film at the 86th Academy Awards.</p>
+      </div>
+      <div class="add order-3">
+        <%= show_svg('add.svg') %>
+      </div>
+    </div>
+  </div>
+
+  <div class="conteiner flex w-screen items-center">
+    <div class="absolute left-panel bg-white opacity-80 h-full flex flex-col">
+      <h1 class="text-3xl ml-3">Your Playlists</h1>
+    </div>
+    <div class="list-carousel inline-grid grid-flow-col overflow-hidden w-screen gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+      <% @lists.each do |list| %>
+        <div class="list-card my-8 mx-1 flex align-middle" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url(<%= list.movies.present? ? list.movies.first.poster_url : asset_path('square.webp') %>)">
+          <div class="list-card-content grid grid-flow-row grid-rows-3 items-center">
+            <div class="add-card order-1 self-baseline justify-self-end mr-2 mt-2">
+              <a href="#">
+                <%= show_svg('add.svg') %>
+              </a>
+            </div>
+            <div class="order-2"></div>
+            <div class="div order-3 self-end mb-3">
+              <%= link_to list_path(list) do %>
+                <h1 class="order-2 text-3xl font-bold text-white ml-2"><%= list.name %></h1>
+              <% end %>
+              <span class="hidden font-inter text-white text-sm order-3 ml-2"><%= list.description %></span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

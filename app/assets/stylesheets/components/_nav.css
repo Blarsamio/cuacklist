@@ -1,0 +1,24 @@
+.nav img:focus {
+  outline: none;
+}
+
+.nav button:focus{
+  outline: 2px solid #444444;
+  outline-offset: 2px;
+  height: 3rem;
+  width: 3rem;
+}
+
+.nav button:focus img{
+  height: 3rem;
+  width: 3rem;
+}
+
+.d-menu{
+  background-color: white;
+}
+
+.nav img{
+  height: 38px;
+  width: 38px;
+}

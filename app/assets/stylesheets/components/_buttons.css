@@ -1,0 +1,278 @@
+.btn-nav {
+  position: relative;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  margin: 0em 0.8em;
+  color: #171717;
+}
+
+.btn-nav::after,
+.btn-nav::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  transition: all 0.6s ease;
+
+}
+.btn-nav::after {
+  bottom: 0;
+  right: 0;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: #171717;
+  border-right-color: #171717;
+}
+
+.btn-nav::before {
+  top: 0;
+  left: 0;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-top-color: #171717;
+  border-left-color: #171717;
+}
+
+.btn-nav:hover:after,
+.btn-nav:hover:before {
+  width: 110%;
+  height: 110%;
+  border: 2px solid;
+}
+
+.btn-nav p {
+  font-family: "Inter-Bold";
+  background: transparent;
+}
+
+.btn-nav:hover p {
+  font-family: "Inter-Bold";
+  /* animation: rotate 0.5s linear; */
+  /* letter-spacing: 3px; */
+  color: #023e8a;
+  position: relative;
+  z-index: 3 !important;
+  transition: all 0.7s ease-in-out;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.btn-imp {
+  color: white;
+  background-color: #023e8a;
+}
+
+.btn-imp span {
+  color: white;
+}
+
+.btn-imp svg {
+  color: white;
+}
+
+.btn-imp:hover {
+  background-color: white;
+  transition: all 0.7s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-imp:hover span {
+  color: #023e8a;
+}
+
+.btn-imp:hover svg {
+  color: #023e8a;
+}
+
+.btn-imp::after,
+.btn-imp::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  border: 1px solid;
+  transition: all 0.6s ease;
+}
+
+.btn-imp::after {
+  bottom: 0;
+  right: 0;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: #023e8a;
+  border-right-color: #023e8a;
+}
+
+.btn-imp::before {
+  top: 0;
+  left: 0;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-top-color: #023e8a;
+  border-left-color: #023e8a;
+}
+
+.btn-imp:hover:after,
+.btn-imp:hover:before {
+  width: 110%;
+  height: 110%;
+  border: 2px solid;
+  border-color: #023e8a;
+}
+
+textarea {
+  width: 100%;
+  display: block;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 0px;
+  margin: 0px 0px;
+  border: 0px;
+  resize: none;
+  overflow: hidden;
+  outline: none;
+  height: 3rem;
+}
+
+textarea::placeholder {
+  color: white;
+  opacity: 75%;
+}
+
+.desc-textarea{
+  width: 100%;
+  display: block;
+  line-height: 1;
+  text-transform: none;
+  padding: 0px;
+  margin: 0px 0px;
+  border: 0px;
+  resize: none;
+  overflow: hidden;
+  outline: none;
+  height: 1.6rem;
+}
+
+.desc-textarea::placeholder{
+  color : #171717;
+  opacity: 75%;
+}
+
+.btn-create {
+  position: relative;
+  background-color: #023e8a;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  width: 100%;
+  height: 3rem;
+  align-self: end;
+  transition: all 0.7s ease-in-out;
+  letter-spacing: 0;
+}
+
+.create:hover input,
+.create:active input{
+  letter-spacing: 5px;
+}
+
+.btn-cancel {
+  position: relative;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+  color: #A30015;
+  width: 100%;
+  height: 3rem;
+  align-self: end;
+  transition: all 0.7s ease-in-out;
+  border : 2px solid;
+  border-color: #A30015;
+}
+
+.cancel:hover input{
+  background-color: #A30015;
+  color: white;
+}
+
+.cancel:hover{
+  cursor: pointer;
+}
+
+.cancel{
+  width: 10%;
+  align-self: flex-end;
+  position: relative;
+}
+
+.create{
+  width: 10%;
+  align-self: flex-end;
+  position: relative;
+}
+
+.create:hover{
+  cursor: pointer;
+}
+
+.create svg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+  width: 100%;
+}
+
+.create:hover svg{
+  stroke-dashoffset: -480;
+}
+
+.cancel:hover input, .cancel:active input{
+  letter-spacing: 5px;
+}
+
+.cancel svg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+  width: 100%;
+}
+
+.cancel:hover svg{
+  stroke-dashoffset: -480;
+}
+
+.btn-add{
+  position: relative;
+  background-color: #023e8a;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  align-self: center;
+  transition: all 1s ease-in-out;
+}
+
+.btn-add:hover{
+  letter-spacing: 5px;
+}

@@ -1,0 +1,22 @@
+.index-body {
+  min-height: calc(100vh - 64px);
+}
+
+.logo-big {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+}
+
+.cont-snap {
+  scroll-behavior: smooth;
+  overflow: auto;
+  scroll-snap-type:y mandatory;
+}
+
+.section {
+  scroll-snap-align: start;
+  width: auto;
+  height: 100vh;
+  background-size:  cover;
+}
