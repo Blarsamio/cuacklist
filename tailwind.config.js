@@ -26,6 +26,7 @@ module.exports = {
         'min-w-80' : '80vw',
         '20pv': '20vw',
         '10pv': '10vw',
+        '30pv': '30vw',
       },
       margin: {
         '10m': '10%',

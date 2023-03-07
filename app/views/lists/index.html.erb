@@ -4,11 +4,11 @@
       <div class="play self-center justify-self-center order-2">
         <%= show_svg('play2.svg') %>
       </div>
-      <div class="content order-1 ml-10 mb-5 justify-self-center self-end">
+      <div class="content-main w-30pv order-1 self-end ml-5 mb-5">
         <p class="text-white">Film of the day</p>
-        <h1 class="text-6xl text-white pt-1 pb-2">The Square</h1>
-        <p class="text-white pb-1">RUBEN OSTLUND Sweden 2017</p>
-        <p class="text-white text-sm pb-4">The Square is a 2013 Swedish satirical black comedy film directed by Ruben Östlund. It was screened in the Un Certain Regard section at the 2013 Cannes Film Festival. The film won the Palme d'Or at the 2013 Cannes Film Festival, and the Academy Award for Best Foreign Language Film at the 86th Academy Awards.</p>
+        <h1 class="text-6xl text-white">The Square</h1>
+        <p class="text-white">RUBEN OSTLUND Sweden 2017</p>
+        <p class="text-white text-sm">The Square is a 2013 Swedish satirical black comedy film directed by Ruben Östlund. It was screened in the Un Certain Regard section at the 2013 Cannes Film Festival. The film won the Palme d'Or at the 2013 Cannes Film Festival, and the Academy Award for Best Foreign Language Film at the 86th Academy Awards.</p>
       </div>
       <div class="add order-3">
         <%= show_svg('add.svg') %>
@@ -22,7 +22,7 @@
     </div>
     <div class="list-carousel inline-grid grid-flow-col overflow-hidden w-screen gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
       <% @lists.each do |list| %>
-        <div class="list-card my-8 mx-1 flex align-middle" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url(<%= list.movies.present? ? list.movies.first.poster_url : asset_path('square.webp') %>)">
+        <div class="list-card my-8 mx-1 flex align-middle" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.movies.present? ? list.movies.first.poster_url : asset_path('square.webp') %>)">
           <div class="list-card-content grid grid-flow-row grid-rows-3 items-center">
             <div class="add-card order-1 self-baseline justify-self-end mr-2 mt-2">
               <a href="#">

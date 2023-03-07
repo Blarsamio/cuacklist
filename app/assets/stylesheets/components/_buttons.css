@@ -1,46 +1,43 @@
 .btn-nav {
   position: relative;
-  border: none;
-  background-color: transparent;
+  background-color: white;
   cursor: pointer;
   outline: none;
   margin: 0em 0.8em;
   color: #171717;
+  border: none;
 }
 
-.btn-nav::after,
-.btn-nav::before {
+.btn-nav:hover,
+.btn-nav:active {
+  letter-spacing: 3px;
+}
+
+.btn-nav:after,
+.btn-nav:before {
+  backface-visibility: hidden;
+  bottom: 0px;
   content: "";
   display: block;
-  position: absolute;
-  width: 20%;
-  height: 20%;
-  transition: all 0.6s ease;
-
-}
-.btn-nav::after {
-  bottom: 0;
-  right: 0;
-  border-top-color: transparent;
-  border-left-color: transparent;
-  border-bottom-color: #171717;
-  border-right-color: #171717;
-}
-
-.btn-nav::before {
-  top: 0;
-  left: 0;
-  border-bottom-color: transparent;
-  border-right-color: transparent;
-  border-top-color: #171717;
-  border-left-color: #171717;
+  margin: 0 auto;
+  position: relative;
+  transition: all 350ms ease-in-out;
+  width: 0;
+  border: 1px solid rgba(0, 0, 0, 0);
 }
 
 .btn-nav:hover:after,
 .btn-nav:hover:before {
-  width: 110%;
-  height: 110%;
-  border: 2px solid;
+  backface-visibility: hidden;
+  border-color: #023e8a;
+  transition: 350ms ease-in-out;
+  width: 100%;
+}
+
+.btn-nav:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 100%;
 }
 
 .btn-nav p {
@@ -54,82 +51,58 @@
   /* letter-spacing: 3px; */
   color: #023e8a;
   position: relative;
-  z-index: 3 !important;
-  transition: all 0.7s ease-in-out;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotateY(0deg);
-  }
-  100% {
-    transform: rotateY(360deg);
-  }
 }
 
 .btn-imp {
   color: white;
   background-color: #023e8a;
+  position: relative;
 }
 
 .btn-imp span {
   color: white;
 }
 
-.btn-imp svg {
-  color: white;
+.btn-imp:hover,
+.btn-imp:active {
+  letter-spacing: 3px;
+  background-color: #023e8a;
 }
 
-.btn-imp:hover {
-  background-color: white;
-  transition: all 0.7s ease-in-out;
-  cursor: pointer;
-}
-
-.btn-imp:hover span {
-  color: #023e8a;
-}
-
-.btn-imp:hover svg {
-  color: #023e8a;
-}
-
-.btn-imp::after,
-.btn-imp::before {
+.btn-imp:after,
+.btn-imp:before {
+  backface-visibility: hidden;
+  bottom: 0px;
   content: "";
   display: block;
-  position: absolute;
-  width: 20%;
-  height: 20%;
-  border: 1px solid;
-  transition: all 0.6s ease;
-}
-
-.btn-imp::after {
-  bottom: 0;
-  right: 0;
-  border-top-color: transparent;
-  border-left-color: transparent;
-  border-bottom-color: #023e8a;
-  border-right-color: #023e8a;
-}
-
-.btn-imp::before {
-  top: 0;
-  left: 0;
-  border-bottom-color: transparent;
-  border-right-color: transparent;
-  border-top-color: #023e8a;
-  border-left-color: #023e8a;
+  margin: 0 auto;
+  position: relative;
+  transition: all 350ms ease-in-out;
+  width: 0;
+  border: 0.5px solid rgba(0, 0, 0, 0);
 }
 
 .btn-imp:hover:after,
 .btn-imp:hover:before {
-  width: 110%;
-  height: 110%;
-  border: 2px solid;
-  border-color: #023e8a;
+  backface-visibility: hidden;
+  border-color: white;
+  transition: 350ms ease-in-out;
+  width: 100%;
 }
+
+.btn-imp:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 100%;
+}
+
+.btn-imp:hover span {
+  color: white;
+}
+
+/* .btn-imp:hover svg {
+  color: #023e8a;
+} */
 
 textarea {
   width: 100%;
@@ -267,12 +240,48 @@ textarea::placeholder {
   position: relative;
   background-color: #023e8a;
   cursor: pointer;
-  outline: none;
   color: white;
-  align-self: center;
-  transition: all 1s ease-in-out;
+  transition: all 350ms ease-in-out;
 }
 
-.btn-add:hover{
+.boton:hover input{
   letter-spacing: 5px;
+  transition: all 350ms ease-in-out;
+}
+
+.boton:hover,
+.boton:active {
+  letter-spacing: 3px;
+  background-color: #023e8a;
+}
+
+.boton:after,
+.boton:before {
+  backface-visibility: hidden;
+  bottom: 0px;
+  content: "";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  transition: all 350ms ease-in-out;
+  width: 0;
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+
+.boton:hover:after,
+.boton:hover:before {
+  backface-visibility: hidden;
+  border-color: white;
+  transition: 350ms ease-in-out;
+  width: 100%;
+}
+
+.boton:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 100%;
+}
+
+.boton:hover span {
+  color: white;
 }

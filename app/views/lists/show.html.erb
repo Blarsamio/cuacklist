@@ -28,7 +28,9 @@
             input_html: {data: {controller: "tom-select"}, class: "ml-5 h-10 self-center font-inter "},
             label_html: {class: "self-center font-inter hidden"} %>
         </div>
-          <%= f.submit class: "btn-add h-10 w-20 self-center ml-5", value: "Add" %>
+          <span class="boton self-center w-20 h-11 ml-5 flex flex-col">
+            <%= f.submit class: "btn-add h-full w-full", value: "Add" %>
+          </span>
       <% end %>
     </div>
   </div>
