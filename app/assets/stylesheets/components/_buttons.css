@@ -123,7 +123,7 @@ textarea::placeholder {
   opacity: 75%;
 }
 
-.desc-textarea{
+.desc-textarea {
   width: 100%;
   display: block;
   line-height: 1;
@@ -137,121 +137,163 @@ textarea::placeholder {
   height: 1.6rem;
 }
 
-.desc-textarea::placeholder{
-  color : #171717;
+.desc-textarea::placeholder {
+  color: #171717;
   opacity: 75%;
 }
 
 .btn-create {
+  transition: all 350ms ease-in-out;
+}
+
+.create {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
   background-color: #023e8a;
-  cursor: pointer;
-  outline: none;
   color: white;
-  width: 100%;
   height: 3rem;
   align-self: end;
-  transition: all 0.7s ease-in-out;
   letter-spacing: 0;
 }
 
-.create:hover input,
-.create:active input{
+.create:hover input {
   letter-spacing: 5px;
+  cursor: pointer;
+  transition: all 350ms ease-in-out;
+}
+
+.create:after,
+.create:before {
+  backface-visibility: hidden;
+  bottom: 0px;
+  content: "";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  width: 0;
+  transition: all 350ms ease-in-out;
+
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.create:hover:after,
+.create:hover:before {
+  backface-visibility: hidden;
+  border-color: white;
+  width: 70%;
+  transition: all 350ms ease-in-out;
+}
+
+.create:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 70%;
 }
 
 .btn-cancel {
+  transition: all 350ms ease-in-out;
+}
+
+.cancel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
   border: none;
   background-color: white;
   cursor: pointer;
   outline: none;
-  color: #A30015;
+  color: #a30015;
   width: 100%;
   height: 3rem;
   align-self: end;
-  transition: all 0.7s ease-in-out;
-  border : 2px solid;
-  border-color: #A30015;
+  transition: all 350ms ease-in-out;
+  border: 2px solid;
+  border-color: #a30015;
 }
 
-.cancel:hover input{
-  background-color: #A30015;
+.cancel:hover input {
   color: white;
-}
-
-.cancel:hover{
   cursor: pointer;
 }
 
-.cancel{
-  width: 10%;
-  align-self: flex-end;
-  position: relative;
-}
-
-.create{
-  width: 10%;
-  align-self: flex-end;
-  position: relative;
-}
-
-.create:hover{
+.cancel:hover {
   cursor: pointer;
+  background-color: #a30015;
 }
 
-.create svg{
-  position: absolute;
-  left: 0;
+.cancel:after,
+.cancel:before {
+  backface-visibility: hidden;
+  bottom: 0px;
+  content: "";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  width: 0;
+  transition: all 350ms ease-in-out;
+
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.cancel:hover:after,
+.cancel:hover:before {
+  backface-visibility: hidden;
+  border-color: white;
+  width: 70%;
+  transition: all 350ms ease-in-out;
+}
+
+.cancel:hover:before {
+  bottom: auto;
   top: 0;
-  fill: none;
-  stroke: #fff;
-  stroke-dasharray: 150 480;
-  stroke-dashoffset: 150;
-  transition: 1s ease-in-out;
-  width: 100%;
+  width: 70%;
 }
 
-.create:hover svg{
-  stroke-dashoffset: -480;
+.cancel {
+  width: 10%;
+  align-self: flex-end;
+  position: relative;
 }
 
-.cancel:hover input, .cancel:active input{
+.create {
+  width: 10%;
+  align-self: flex-end;
+  position: relative;
+  transition: all 350ms ease-in-out;
+}
+
+.create:hover {
+  cursor: pointer;
+  transition: all 350ms ease-in-out;
+}
+
+.cancel:hover input,
+.cancel:active input {
   letter-spacing: 5px;
 }
 
-.cancel svg{
-  position: absolute;
-  left: 0;
-  top: 0;
-  fill: none;
-  stroke: #fff;
-  stroke-dasharray: 150 480;
-  stroke-dashoffset: 150;
-  transition: 1s ease-in-out;
-  width: 100%;
-}
-
-.cancel:hover svg{
-  stroke-dashoffset: -480;
-}
-
-.btn-add{
+.boton {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: #023e8a;
   cursor: pointer;
   color: white;
   transition: all 350ms ease-in-out;
 }
 
-.boton:hover input{
+.boton:hover input {
   letter-spacing: 5px;
   transition: all 350ms ease-in-out;
+  cursor: pointer;
 }
 
 .boton:hover,
 .boton:active {
-  letter-spacing: 3px;
   background-color: #023e8a;
 }
 
@@ -273,15 +315,19 @@ textarea::placeholder {
   backface-visibility: hidden;
   border-color: white;
   transition: 350ms ease-in-out;
-  width: 100%;
+  width: 70%;
 }
 
 .boton:hover:before {
   bottom: auto;
   top: 0;
-  width: 100%;
+  width: 70%;
 }
 
-.boton:hover span {
-  color: white;
+.btn-add{
+  transition: 350ms ease-in-out;
+}
+
+i:hover{
+  color: #023e8a;
 }
