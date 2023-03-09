@@ -1,24 +1,26 @@
 <div class="cont-snap">
   <div class="flex flex-col">
-    <div class="z-1 relative bg-no-repeat bg-cover grid grid-cols-3 h-10vph w-screen" style="background-image: url(<%= asset_path('square.webp') %>)" >
+    <% fotd = @lists.sample.movies.sample %>
+    <div class="z-1 relative bg-no-repeat bg-cover grid grid-cols-3 h-10vph w-screen" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= fotd.poster_url.present? ? fotd.poster_url : asset_path('square.webp') %>)" >
       <div class="play self-center justify-self-center order-2">
         <%= show_svg('play2.svg') %>
       </div>
       <div class="content-main w-30pv order-1 self-end ml-5 mb-5">
         <p class="text-white">Film of the day</p>
-        <h1 class="text-6xl text-white">The Square</h1>
-        <p class="text-white">RUBEN OSTLUND Sweden 2017</p>
-        <p class="text-white text-sm">The Square is a 2013 Swedish satirical black comedy film directed by Ruben Östlund. It was screened in the Un Certain Regard section at the 2013 Cannes Film Festival. The film won the Palme d'Or at the 2013 Cannes Film Festival, and the Academy Award for Best Foreign Language Film at the 86th Academy Awards.</p>
+        <%= link_to movie_path(fotd) do %>
+        <h1 class="text-6xl text-white pb-2"><%= fotd.title %></h1>
+        <% end %>
+        <p class="text-white font-bold pb-2">Cuacklist Rating: <%= fotd.rating.round(2) %></p>
+        <p class="text-white text-sm pb-2"><%= fotd.overview %></p>
       </div>
       <div class="add order-3">
         <%= show_svg('add.svg') %>
       </div>
     </div>
   </div>
-
   <div class="conteiner flex w-screen items-center">
     <div class="absolute left-panel bg-white opacity-80 h-full flex flex-col">
-      <h1 class="text-3xl ml-3">Your Playlists</h1>
+      <h1 class="text-3xl text-oxford ml-3 hover:cursor-default">Your Playlists</h1>
     </div>
     <div class="list-carousel inline-grid grid-flow-col overflow-hidden w-screen gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
       <% @lists.each do |list| %>
@@ -39,6 +41,85 @@
           </div>
         </div>
       <% end %>
+    </div>
+  </div>
+    <div class="flex flex-col">
+    <% movie = @lists.sample.movies.sample %>
+      <div class="z-1 relative bg-no-repeat bg-cover grid grid-cols-3 h-10vph w-screen" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= movie.poster_url.present? ? movie.poster_url : asset_path('square.webp') %>)" >
+        <div class="play self-center justify-self-center order-2">
+          <%= show_svg('play2.svg') %>
+        </div>
+        <div class="content-main w-30pv order-1 self-end ml-5 mb-5">
+          <p class="text-white pb-2">Recommended Film</p>
+          <%= link_to movie_path(movie) do %>
+            <h1 class="text-5xl text-white pb-2"><%= movie.title %></h1>
+          <% end %>
+          <p class="text-white pb-2">Cuacklist rating: <%= movie.rating.round(2) %></p>
+          <p class="text-white text-sm"><%= movie.overview %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h1 class="text-oxford text-5xl mt-8 ml-3">Your all time favourites</h1>
+  <div class="conteiner flex w-screen items-center">
+    <div class="absolute left-panel bg-white opacity-80 h-full flex flex-col">
+      <h1 class="text-3xl text-oxford ml-3 hover:cursor-default">Favourite Films</h1>
+    </div>
+    <div class="list-carousel inline-grid grid-flow-col overflow-hidden w-screen gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+      <% @movies = Movie.all %>
+      <% @movies.sample(10).each do |mov| %>
+        <div class="list-card my-8 mx-1 flex align-middle" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= mov.poster_url %>)">
+          <div class="list-card-content grid grid-flow-row grid-rows-3 items-center">
+            <div class="add-card order-1 self-baseline justify-self-end mr-2 mt-2">
+              <a href="#">
+                <%= show_svg('add.svg') %>
+              </a>
+            </div>
+            <div class="order-2"></div>
+            <div class="div order-3 self-end mb-3">
+              <%= link_to movie_path(mov) do %>
+                <h1 class="order-2 text-3xl font-bold text-white ml-2 text-clip"><%= mov.title %></h1>
+              <% end %>
+              <span class="hidden font-inter text-white text-sm order-3 ml-2"><%= mov.tagline %></span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <h1 class="text-oxford text-5xl mb-8 ml-3">Your Playlists</h1>
+  <div class="p-container w-screen grid bg-silver bg-opacity-30">
+    <div class="w-20vpw justify-self-center grid">
+      <ul class="p-card list-none flex flex-row flex-wrap">
+        <li class="create-card h-60 w-80 bg-white mb-4 mr-4 flex justify-center">
+          <div class="links self-center justify-self-center grid">
+            <%= link_to new_list_path do %>
+              <div class="sv self-center justify-self-center justify-around">
+                <%= show_svg('addi.svg') %>
+              </div>
+              <p class="text-onyx">Create new playlist</p>
+            <% end %>
+          </div>
+        </li>
+        <% @lists.each do |list| %>
+        <%= link_to list_path(list) do %>
+          <li class="p-card__item h-60 w-80 bg-cover bg-white mb-4 mr-4 flex flex-col">
+            <div class="flex flex-row h-1/2">
+              <div class="img1 w-3/5 bg-cover mr-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.movies.present? ? list.movies.first.poster_url : asset_path('square.webp') %>)"></div>
+              <div class="w-2/5 flex flex-col">
+                <div class="bg-cover h-1/2 mb-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.movies.present? ? list.movies.second.poster_url : asset_path('square.webp') %>)"></div>
+                <div class="bg-cover h-1/2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.movies.present? ? list.movies.third.poster_url : asset_path('square.webp') %>)"></div>
+              </div>
+            </div>
+            <div class="bg-white h-1/2 flex flex-col">
+              <h2 class="text-onyx mt-6 ml-6 text-xl font-circular mb-1 hover:text-oxford"><%= list.name %></h2>
+              <p class="text-onyx ml-6 text-sm font-inter mb-1"><%= list.movies.count %></p>
+              <p class="text-onyx ml-6 text-xs font-inter hover:text-oxford">FILMS</p>
+            </div>
+          </li>
+        <% end %>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

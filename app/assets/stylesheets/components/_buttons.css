@@ -331,3 +331,7 @@ textarea::placeholder {
 i:hover{
   color: #023e8a;
 }
+
+i:hover::before{
+  color: #023e8a;
+}

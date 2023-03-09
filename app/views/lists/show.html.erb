@@ -1,8 +1,8 @@
 <div class="cont h-50vp flex justify-center bg-cover bg-center" style="background-image: url(<%= @list.movies.present? ? @list.movies.first.poster_url : asset_path('square.webp') %>)">
   <div class="flex flex-col justify-center w-20vpw">
     <div class="icons w-full h-20 flex flex-row justify-end">
-      <%= link_to list_path(@list), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } do %>
-        <i class="absolute fa-solid fa-trash-can text-transparent text-3xl ml-5"></i>
+      <%= link_to list_path(@list), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?", class:"text-transparent" } do %>
+        <i class="absolute fa-solid fa-trash-can text-3xl ml-5 text-transparent"></i>
       <% end %>
     </div>
     <h1 class="text-white text-5xl my-5 border-none focus:border-none active:border-none focus:outline-none focus:ring-0 focus:ring-offset-0">
@@ -48,7 +48,7 @@
             <%= movie.title %>
           </h1>
           <p class="text-xs text-white hidden mb-5 order-3 text-clip">
-            <%= movie.overview %>
+            <%= movie.tagline %>
           </p>
         </div>
       </div>

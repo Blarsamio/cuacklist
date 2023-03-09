@@ -89,3 +89,26 @@
   color: white;
   cursor: pointer;
 }
+
+.create-card svg{
+  height: 72px;
+  width: 72px;
+  stroke : #444;
+}
+
+.sv {
+  height: 72px;
+  max-width: 72px;
+}
+
+.create-card a{
+  display: grid;
+}
+
+.create-card:hover path{
+  stroke : #023e8a;
+}
+
+.create-card:hover p{
+  color: #023e8a;
+}

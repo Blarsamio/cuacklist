@@ -79,4 +79,4 @@ gem "sassc-rails" # Uncomment this line
 gem 'simple_form'
 gem 'heroicon'
 gem "simple_form_tailwind_css"
-gem "mapkick-rb"
+gem 'themoviedb-api'
