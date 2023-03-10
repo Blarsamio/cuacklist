@@ -14,7 +14,9 @@
         <p class="text-white text-sm pb-2"><%= fotd.overview %></p>
       </div>
       <div class="add order-3">
-        <%= show_svg('add.svg') %>
+        <%# <a href="/favourites/5/bookmarks/new">
+          <%= show_svg('add.svg') %>
+        <%# </a> %>
       </div>
     </div>
   </div>
@@ -27,14 +29,14 @@
         <div class="list-card my-8 mx-1 flex align-middle" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.movies.present? ? list.movies.first.poster_url : asset_path('square.webp') %>)">
           <div class="list-card-content grid grid-flow-row grid-rows-3 items-center">
             <div class="add-card order-1 self-baseline justify-self-end mr-2 mt-2">
-              <a href="#">
+              <%# <a href="#">
                 <%= show_svg('add.svg') %>
-              </a>
+              <%# </a> %>
             </div>
             <div class="order-2"></div>
             <div class="div order-3 self-end mb-3">
               <%= link_to list_path(list) do %>
-                <h1 class="order-2 text-3xl font-bold text-white ml-2"><%= list.name %></h1>
+                <h1 class="order-2 text-3xl font-bold text-white ml-2"><%= list.name.capitalize %></h1>
               <% end %>
               <span class="hidden font-inter text-white text-sm order-3 ml-2"><%= list.description %></span>
             </div>
@@ -66,60 +68,25 @@
       <h1 class="text-3xl text-oxford ml-3 hover:cursor-default">Favourite Films</h1>
     </div>
     <div class="list-carousel inline-grid grid-flow-col overflow-hidden w-screen gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-      <% @movies = Movie.all %>
-      <% @movies.sample(10).each do |mov| %>
-        <div class="list-card my-8 mx-1 flex align-middle" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= mov.poster_url %>)">
+      <% Bookmark.where(list_id: 93).each do |mov| %>
+      <% movie = mov.movie %>
+        <div class="list-card my-8 mx-1 flex align-middle" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= movie.poster_url %>)">
           <div class="list-card-content grid grid-flow-row grid-rows-3 items-center">
             <div class="add-card order-1 self-baseline justify-self-end mr-2 mt-2">
-              <a href="#">
+              <%# <a href="#">
                 <%= show_svg('add.svg') %>
-              </a>
+              <%# </a> %>
             </div>
             <div class="order-2"></div>
             <div class="div order-3 self-end mb-3">
-              <%= link_to movie_path(mov) do %>
-                <h1 class="order-2 text-3xl font-bold text-white ml-2 text-clip"><%= mov.title %></h1>
+              <%= link_to movie_path(movie) do %>
+                <h1 class="order-2 text-3xl font-bold text-white ml-2 text-clip"><%= movie.title %></h1>
               <% end %>
-              <span class="hidden font-inter text-white text-sm order-3 ml-2"><%= mov.tagline %></span>
+              <span class="hidden font-inter text-white text-sm order-3 ml-2"><%= movie.tagline %></span>
             </div>
           </div>
         </div>
       <% end %>
-    </div>
-  </div>
-  <h1 class="text-oxford text-5xl mb-8 ml-3">Your Playlists</h1>
-  <div class="p-container w-screen grid bg-silver bg-opacity-30">
-    <div class="w-20vpw justify-self-center grid">
-      <ul class="p-card list-none flex flex-row flex-wrap">
-        <li class="create-card h-60 w-80 bg-white mb-4 mr-4 flex justify-center">
-          <div class="links self-center justify-self-center grid">
-            <%= link_to new_list_path do %>
-              <div class="sv self-center justify-self-center justify-around">
-                <%= show_svg('addi.svg') %>
-              </div>
-              <p class="text-onyx">Create new playlist</p>
-            <% end %>
-          </div>
-        </li>
-        <% @lists.each do |list| %>
-        <%= link_to list_path(list) do %>
-          <li class="p-card__item h-60 w-80 bg-cover bg-white mb-4 mr-4 flex flex-col">
-            <div class="flex flex-row h-1/2">
-              <div class="img1 w-3/5 bg-cover mr-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.movies.present? ? list.movies.first.poster_url : asset_path('square.webp') %>)"></div>
-              <div class="w-2/5 flex flex-col">
-                <div class="bg-cover h-1/2 mb-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.movies.present? ? list.movies.second.poster_url : asset_path('square.webp') %>)"></div>
-                <div class="bg-cover h-1/2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.movies.present? ? list.movies.third.poster_url : asset_path('square.webp') %>)"></div>
-              </div>
-            </div>
-            <div class="bg-white h-1/2 flex flex-col">
-              <h2 class="text-onyx mt-6 ml-6 text-xl font-circular mb-1 hover:text-oxford"><%= list.name %></h2>
-              <p class="text-onyx ml-6 text-sm font-inter mb-1"><%= list.movies.count %></p>
-              <p class="text-onyx ml-6 text-xs font-inter hover:text-oxford">FILMS</p>
-            </div>
-          </li>
-        <% end %>
-        <% end %>
-      </ul>
     </div>
   </div>
 </div>

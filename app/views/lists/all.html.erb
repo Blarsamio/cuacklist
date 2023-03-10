@@ -1,0 +1,35 @@
+<h1 class="text-oxford text-5xl mt-8 mb-16 ml-10m">Your Playlists</h1>
+  <div class="p-container w-screen grid bg-silver bg-opacity-30">
+    <div class="w-20vpw justify-self-center grid">
+      <ul class="p-card list-none flex flex-row flex-wrap justify-between">
+        <li class="create-card h-60 w-25pv bg-white mb-4 flex justify-center">
+          <div class="links self-center justify-self-center grid">
+            <%= link_to new_list_path do %>
+              <div class="sv self-center justify-self-center justify-around">
+                <%= show_svg('addi.svg') %>
+              </div>
+              <p class="text-onyx">Create new playlist</p>
+            <% end %>
+          </div>
+        </li>
+        <% @lists.each do |list| %>
+        <%= link_to list_path(list) do %>
+          <li class="p-card__item h-60 w-25pv bg-cover bg-white mb-4 flex flex-col">
+            <div class="flex flex-row h-1/2">
+              <div class="img1 w-3/5 bg-cover mr-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.movies.present? ? list.movies.first.poster_url : asset_path('square.webp') %>)"></div>
+              <div class="w-2/5 flex flex-col">
+                <div class="bg-cover h-1/2 mb-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.movies.second.present? ? list.movies.second.poster_url : asset_path('square.webp') %>)"></div>
+                <div class="bg-cover h-1/2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.movies.third.present? ? list.movies.third.poster_url : asset_path('square.webp') %>)"></div>
+              </div>
+            </div>
+            <div class="bg-white h-1/2 flex flex-col">
+              <h2 class="text-onyx text-opacity-80 mt-6 ml-6 text-xl font-circular mb-1 hover:text-oxford"><%= list.name %></h2>
+              <p class="text-onyx ml-6 text-sm font-inter mb-1"><%= list.movies.count %></p>
+              <p class="text-onyx ml-6 text-xs font-inter hover:text-oxford">FILMS</p>
+            </div>
+          </li>
+        <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>

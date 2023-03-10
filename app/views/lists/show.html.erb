@@ -6,14 +6,14 @@
       <% end %>
     </div>
     <h1 class="text-white text-5xl my-5 border-none focus:border-none active:border-none focus:outline-none focus:ring-0 focus:ring-offset-0">
-      <%= @list.name %>
+      <%= @list.name.upcase %>
     </h1>
     <p class="text-white text-xl">
       <%= @list.description %>
     </p>
   </div>
 </div>
-<div class="desc-section bg-white h-10vp flex w-screen justify-center mb-10">
+<div class="desc-section bg-white h-10vp flex w-screen justify-center mb-5">
   <div class="flex flex-row w-20vpw justify-start">
     <p class="text-lw-black text-sm self-center mr-5">
       <%= pluralize(@list.movies.size, "film").upcase %>

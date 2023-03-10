@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_09_150128) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_10_104549) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,8 +48,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_150128) do
     t.bigint "list_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "favourite_id"
+    t.index ["favourite_id"], name: "index_bookmarks_on_favourite_id"
     t.index ["list_id"], name: "index_bookmarks_on_list_id"
     t.index ["movie_id"], name: "index_bookmarks_on_movie_id"
+  end
+
+  create_table "favourites", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "name"
+    t.text "description"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -72,6 +81,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_150128) do
     t.date "release_date"
     t.string "tagline"
     t.integer "vote_count"
+    t.bigint "favourite_id"
+    t.index ["favourite_id"], name: "index_movies_on_favourite_id"
     t.index ["list_id"], name: "index_movies_on_list_id"
   end
 
@@ -86,8 +97,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_150128) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookmarks", "favourites"
   add_foreign_key "bookmarks", "lists"
   add_foreign_key "bookmarks", "movies"
+  add_foreign_key "movies", "favourites"
   add_foreign_key "movies", "lists"
   add_foreign_key "reviews", "lists"
 end

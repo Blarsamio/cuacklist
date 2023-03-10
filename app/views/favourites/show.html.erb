@@ -1,0 +1,15 @@
+<%= @favourite.movies.each do |movie|  %>
+  <h1><%= movie.title %></h1>
+<% end %>
+ <div class="bg-transparent self-center w-full h-full">
+  <%= simple_form_for [@favourite, @bookmark] do |f| %>
+    <div class="selector self-center">
+      <%= f.association :movie, prompt: "Select a film",
+        input_html: {data: {controller: "tom-select"}, class: "ml-5 h-10 self-center font-inter "},
+        label_html: {class: "self-center font-inter hidden"} %>
+    </div>
+      <div class="boton self-center w-20 h-10 ml-5">
+        <%= f.submit class: "btn-add font-inter font-bold", value: "Add" %>
+      </div>
+  <% end %>
+</div>

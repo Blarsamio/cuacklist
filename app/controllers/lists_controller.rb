@@ -14,6 +14,10 @@ class ListsController < ApplicationController
     @list = List.new
   end
 
+  def all
+    @lists = List.all
+  end
+
   def create
     @list = List.new(list_params)
     if @list.save
@@ -35,6 +39,6 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:name, :photo)
+    params.require(:list).permit(:name, :photo, :description)
   end
 end
